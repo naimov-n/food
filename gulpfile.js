@@ -42,19 +42,19 @@ let { src, dest } = require("gulp"),
     webp = require("gulp-webp"),
     webphtml = require("gulp-webp-html"),
     webpcss = require("gulp-webp-css"),
-    svgSprite = require("gulp-svg-sprite"),
+    svgSprite = require("gulp-svg-sprite");
 
 
-    function browserSync(params) {
-        browsersync.init({
-            server: {
-                baseDir: "./" + project_folder + "/"
-            },
-            port: 3000,
-            notify: false
-        })
+function browserSync(params) {
+    browsersync.init({
+        server: {
+            baseDir: "./" + project_folder + "/"
+        },
+        port: 3000,
+        notify: false
+    })
 
-    }
+}
 
 function clean(params) {
     return del(path.clean)
