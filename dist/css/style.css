@@ -11,14 +11,3 @@
     color: black;
   }
 }
-@supports (-webkit-appearance:none){
-
-}
-
- @media (max-width: 767px){
-
-@supports (-webkit-appearance:none){
-
-}
-
-}
