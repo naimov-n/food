@@ -16,14 +16,14 @@ let path = {
         css: source_folder + "/assets/scss/**/*.scss",
         csss: source_folder + "/assets/scss/**/*.css",
         js: source_folder + "/assets/js/**/*.js",
-        images: source_folder + "/assets/images/**/*.{jpeg,jpg,svg,png,gif,ico,webp}",
+        images: source_folder + "/assets/images/**/*.{jpeg,jpg,svg,png,gif,ico}",
         fonts: source_folder + "/assets/fonts/*.ttf",
     },
     watch: {
         html: source_folder + "/**/*.html",
         css: source_folder + "/assets/scss/**/*.scss",
         js: source_folder + "/assets/js/**/*.js",
-        images: source_folder + "/assets/images/**/*.{jpeg,jpg,svg,png,gif,ico,webp}",
+        images: source_folder + "/assets/images/**/*.{jpeg,jpg,svg,png,gif,ico}",
     },
     clean: "./" + project_folder + "/"
 }
@@ -39,9 +39,6 @@ let { src, dest } = require("gulp"),
     rename = require("gulp-rename"),
     uglify = require("gulp-uglify-es").default,
     imagemin = require("gulp-imagemin"),
-    webp = require("gulp-webp"),
-    webphtml = require("gulp-webp-html"),
-    webpcss = require("gulp-webp-css"),
     svgSprite = require("gulp-svg-sprite");
 
 
@@ -62,7 +59,6 @@ function clean(params) {
 
 function html() {
     return src(path.src.html)
-        .pipe(webphtml())
         .pipe(dest(path.build.html))
         .pipe(browsersync.stream())
 }
@@ -113,9 +109,6 @@ function js() {
 
 function images() {
     return src(path.src.images)
-        .pipe(webp({
-            quality: 70
-        }))
         .pipe(dest(path.build.images))
         .pipe(src(path.src.images))
         .pipe(imagemin({
